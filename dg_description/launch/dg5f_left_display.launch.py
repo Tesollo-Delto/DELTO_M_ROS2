@@ -38,15 +38,15 @@ from ament_index_python.packages import get_package_share_directory
 
 
 def generate_launch_description():
-    share_dir = get_package_share_directory('dg_m_description')
+    share_dir = get_package_share_directory('dg_description')
 
-    urdf_file = os.path.join(share_dir, 'urdf', 'dg5f_right.urdf')
+    urdf_file = os.path.join(share_dir, 'urdf', 'dg5f_left.urdf')
     with open(urdf_file, 'r') as file:
         robot_description_content = file.read()
 
     params = {'robot_description': robot_description_content}
 
-    rviz_config_file = os.path.join(share_dir, 'config', 'dg5f_right_display.rviz')
+    rviz_config_file = os.path.join(share_dir, 'config', 'dg5f_left_display.rviz')
 
     gui_arg = DeclareLaunchArgument(
         name='gui',

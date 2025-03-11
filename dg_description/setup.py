@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-package_name = 'dg_m_description'
+package_name = 'dg_description'
 
 
 def get_all_files(directory):
