@@ -1,0 +1,754 @@
+<?xml version="1.0" ?>
+<!--
+    dg5f_right.xacro
+    Licensed under the BSD-3-Clause
+    Copyright (c) 2025 Tesollo Inc.
+    See LICENSE file for details.
+
+    Reference:
+    * https://tesollo.com/dg-5f/
+-->
+
+<robot name="dg5f_right">
+
+  <link name="right_base_link" />
+
+  <joint name="dummy_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="right_base_link" />
+    <child link="rl_dg_mount" />
+  </joint>
+
+  <link name="rl_dg_mount">
+    <inertial>
+      <origin xyz="-6.4721E-09 -2.1674E-05 0.0049997" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.0999E-05" ixy="-2.1734E-12" ixz="1.2441E-12" iyy="1.1018E-05" iyz="4.0435E-09" izz="2.0531E-05" />
+      <mass value="0.06" />
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_mount.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_mount_c.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="rl_dg_base">
+    <inertial>
+      <origin xyz="-0.00058969 0.0005138 0.037363" rpy="0.0 0.0 0.0" />
+      <inertia ixx="0.00048608" ixy="1.041E-05" ixz="1.7229E-05" iyy="0.00049085" iyz="-5.1908E-06" izz="0.00043369" />
+      <mass value="0.4" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_base.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_base_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_mount" type="fixed">
+    <parent link="rl_dg_mount"/>
+    <child link="rl_dg_base"/>
+    <origin rpy="0 0 0" xyz="0 0 0.004"/>
+  </joint>
+
+  <link name="rl_dg_palm">
+    <inertial>
+      <origin xyz="-0.0089577 -0.00093577 -0.041325" rpy="0.0 0.0 0.0" />
+      <inertia ixx="0.00052656" ixy="-2.513E-06" ixz="2.2304E-05" iyy="0.00041654" iyz="-4.8956E-05" izz="0.00045783" />
+      <mass value="0.4" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_palm.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_palm_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_palm" type="fixed">
+    <parent link="rl_dg_base"/>
+    <child link="rl_dg_palm"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0698"/>
+  </joint>
+
+  <link name="rl_dg_1_1">
+    <inertial>
+      <origin xyz="-0.0027531 -0.0025046 0.021473" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.3718E-05" ixy="-1.3824E-09" ixz="-2.4123E-09" iyy="1.2161E-05" iyz="-2.9055E-06" izz="4.2707E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_1_1.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_1_1_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_1_1" type="revolute">
+    <origin xyz="-0.0162 0.019 0.0128" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_palm" />
+    <child link="rl_dg_1_1" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.3839724354387525" upper="0.8901179185171081" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_1_2">
+    <inertial>
+      <origin xyz="0.00055633 -0.00055633 0.0015001" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.9935E-06" ixy="-3.114E-09" ixz="-1.5774E-07" iyy="1.9935E-06" iyz="-1.5774E-07" izz="1.459E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_1_2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_1_2_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_1_2" type="revolute">
+    <origin xyz="0.04195 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_1_1" />
+    <child link="rl_dg_1_2" />
+    <axis xyz="0 0 1" />
+    <limit lower="-3.141592653589793" upper="0.005" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_1_3">
+    <inertial>
+      <origin xyz="4.7446E-06 -2.3008E-05 -0.014842" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.4181E-06" ixy="1.3678E-09" ixz="2.3552E-09" iyy="5.9794E-06" iyz="-3.6014E-07" izz="2.458E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_1_3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_1_3_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_1_3" type="revolute">
+    <origin xyz="0.0 0.031 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_1_2" />
+    <child link="rl_dg_1_3" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.005" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_1_4">
+    <inertial>
+      <origin xyz="-0.00036539 0.0028048 -0.017045" rpy="0.0 0.0 0.0" />
+      <inertia ixx="9.8194E-06" ixy="-3.4626E-09" ixz="-3.7813E-07" iyy="9.4915E-06" iyz="-1.5157E-07" izz="2.9391E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_1_4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_1_4_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_1_4" type="revolute">
+    <origin xyz="0.0 0.0388 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_1_3" />
+    <child link="rl_dg_1_4" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.005" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_1_tip">
+    <inertial>
+      <origin xyz="-5.479E-07 0.012157 -0.0038063" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.9895E-07" ixy="3.0731E-11" ixz="2.1191E-12" iyy="2.5698E-07" iyz="-1.3375E-08" izz="3.2445E-07" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_1_tip.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_1_tip_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_1_tip" type="fixed">
+    <origin xyz="0.0 0.047 0.0" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_1_4" />
+    <child link="rl_dg_1_tip" />
+  </joint>
+
+  <link name="rl_dg_2_1">
+    <inertial>
+      <origin xyz="-0.000244168199391354 -0.00300090352846782 0.0165889702832435" rpy="0.0 0.0 0.0" />
+      <inertia ixx="9.53048569995861E-06" ixy="-7.60720623853053E-08" ixz="3.92935984210443E-08" iyy="7.08766686657588E-06" iyz="1.15069967567424E-06" izz="6.55379378472259E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_2_1.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_2_1_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_2_1" type="revolute">
+    <origin xyz="-0.0071 0.027 0.0661" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_palm" />
+    <child link="rl_dg_2_1" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.4188790204786391" upper="0.6108652381980153" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_2_2">
+    <inertial>
+      <origin xyz="4.7446492176962E-06 -2.3008364939188E-05 -0.0148418615456518" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.41805423935037E-06" ixy="1.36778125377621E-09" ixz="2.35515982623943E-09" iyy="5.97938336588574E-06" iyz="-3.6014375250206E-07" izz="2.45800517139059E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_2_2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_2_2_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_2_2" type="revolute">
+    <origin xyz="0.01765 0.0 0.0265" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_2_1" />
+    <child link="rl_dg_2_2" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.0" upper="2.007128639793479" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_2_3">
+    <inertial>
+      <origin xyz="4.7446E-06 -2.3008E-05 -0.014842" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.4181E-06" ixy="1.3678E-09" ixz="2.3552E-09" iyy="5.9794E-06" iyz="-3.6014E-07" izz="2.458E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_2_3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_2_3_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_2_3" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_2_2" />
+    <child link="rl_dg_2_3" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_2_4">
+    <inertial>
+      <origin xyz="0.53347 0.86459 -1.5698" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.6592E-06" ixy="-1.8286E-07" ixz="2.1028E-07" iyy="2.3907E-06" iyz="5.9306E-09" izz="2.8592E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_2_4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_2_4_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_2_4" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_2_3" />
+    <child link="rl_dg_2_4" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_2_tip">
+    <inertial>
+      <origin xyz="-5.479E-07 0.012157 -0.0038063" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.9895E-07" ixy="3.0731E-11" ixz="2.1191E-12" iyy="2.5698E-07" iyz="-1.3375E-08" izz="3.2445E-07" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_2_tip.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_2_tip_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_2_tip" type="fixed">
+    <origin xyz="0.0 0.0 0.0362" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_2_4" />
+    <child link="rl_dg_2_tip" />
+  </joint>
+
+  <link name="rl_dg_3_1">
+    <inertial>
+      <origin xyz="0.00017703 -0.0031262 0.016394" rpy="0.0 0.0 0.0" />
+      <inertia ixx="9.3331E-06" ixy="-3.5383E-08" ixz="1.1315E-07" iyy="6.7817E-06" iyz="1.1589E-06" izz="6.233E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_3_1.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_3_1_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_3_1" type="revolute">
+    <origin xyz="-0.0071 0.0025 0.0701" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_palm" />
+    <child link="rl_dg_3_1" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.6108652381980153" upper="0.6108652381980153" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_3_2">
+    <inertial>
+      <origin xyz="4.7446E-06 -2.3008E-05 -0.014842" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.4181E-06" ixy="1.3678E-09" ixz="2.3552E-09" iyy="5.9794E-06" iyz="-3.6014E-07" izz="2.458E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_3_2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_3_2_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_3_2" type="revolute">
+    <origin xyz="0.01765 0.0 0.0265" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_3_1" />
+    <child link="rl_dg_3_2" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.9547687622336491" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_3_3">
+    <inertial>
+      <origin xyz="4.7446E-06 -2.3008E-05 -0.014842" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.4181E-06" ixy="1.3678E-09" ixz="2.3552E-09" iyy="5.9794E-06" iyz="-3.6014E-07" izz="2.458E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_3_3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_3_3_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_3_3" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_3_2" />
+    <child link="rl_dg_3_3" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_3_4">
+    <inertial>
+      <origin xyz="0.53347 0.86459 -1.5698" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.6592E-06" ixy="-1.8286E-07" ixz="2.1028E-07" iyy="2.3907E-06" iyz="5.9306E-09" izz="2.8592E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_3_4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_3_4_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_3_4" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_3_3" />
+    <child link="rl_dg_3_4" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_3_tip">
+    <inertial>
+      <origin xyz="-5.479E-07 0.012157 -0.0038063" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.9895E-07" ixy="3.0731E-11" ixz="2.1191E-12" iyy="2.5698E-07" iyz="-1.3375E-08" izz="3.2445E-07" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_3_tip.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_3_tip_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_3_tip" type="fixed">
+    <origin xyz="0.0 0.0 0.0362" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_3_4" />
+    <child link="rl_dg_3_tip" />
+  </joint>
+
+  <link name="rl_dg_4_1">
+    <inertial>
+      <origin xyz="0.00058566 -0.0030007 0.016589" rpy="0.0 0.0 0.0" />
+      <inertia ixx="9.5306E-06" ixy="5.3298E-09" ixz="1.8684E-07" iyy="7.0879E-06" iyz="1.1508E-06" izz="6.5541E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_4_1.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_4_1_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_4_1" type="revolute">
+    <origin xyz="-0.0071 -0.022 0.0621" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_palm" />
+    <child link="rl_dg_4_1" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.6108652381980153" upper="0.4188790204786391" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_4_2">
+    <inertial>
+      <origin xyz="4.7446E-06 -2.3008E-05 -0.014842" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.4181E-06" ixy="1.3678E-09" ixz="2.3552E-09" iyy="5.9794E-06" iyz="-3.6014E-07" izz="2.458E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_4_2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_4_2_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_4_2" type="revolute">
+    <origin xyz="0.01765 0.0 0.0265" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_4_1" />
+    <child link="rl_dg_4_2" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.9024088846738192" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_4_3">
+    <inertial>
+      <origin xyz="4.7446E-06 -2.3008E-05 -0.014842" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.4181E-06" ixy="1.3678E-09" ixz="2.3552E-09" iyy="5.9794E-06" iyz="-3.6014E-07" izz="2.458E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_4_3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_4_3_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_4_3" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_4_2" />
+    <child link="rl_dg_4_3" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_4_4">
+    <inertial>
+      <origin xyz="0.53347 0.86459 -1.5698" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.6592E-06" ixy="-1.8286E-07" ixz="2.1028E-07" iyy="2.3907E-06" iyz="5.9306E-09" izz="2.8592E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_4_4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_4_4_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_4_4" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_4_3" />
+    <child link="rl_dg_4_4" />
+    <axis xyz="0 1 0" />
+    <limit lower="0.0" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_4_tip">
+    <inertial>
+      <origin xyz="-5.479E-07 0.012157 -0.0038063" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.9895E-07" ixy="3.0731E-11" ixz="2.1191E-12" iyy="2.5698E-07" iyz="-1.3375E-08" izz="3.2445E-07" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_4_tip.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_4_tip_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_4_tip" type="fixed">
+    <origin xyz="0.0 0.0 0.0362" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_4_4" />
+    <child link="rl_dg_4_tip" />
+  </joint>
+
+  <link name="rl_dg_5_1">
+    <inertial>
+      <origin xyz="-0.00298426729578553 -0.00173013582483463 -0.0223255519213411" rpy="0.0 0.0 0.0" />
+      <inertia ixx="2.36540063110524E-05" ixy="-2.93907895931122E-07" ixz="-4.47865100758351E-06" iyy="2.36207639664084E-05" iyz="2.26324366936634E-06" izz="1.12977296557035E-05" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_5_1.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_5_1_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_5_1" type="revolute">
+    <origin xyz="0.0103 -0.0195 0.0182" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_palm" />
+    <child link="rl_dg_5_1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.017453292519943295" upper="1.0471975511965976" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_5_2">
+    <inertial>
+      <origin xyz="-0.000537630708727942 -0.000537630631569664 0.0015000698139622" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.99384475671682E-06" ixy="8.19844977566256E-09" ixz="1.59463723420756E-07" iyy="1.99384439440443E-06" iyz="-1.59465145750794E-07" izz="1.4598228332417E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_5_2.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_5_2_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_5_2" type="revolute">
+    <origin xyz="0.0 -0.028 0.0381" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_5_1" />
+    <child link="rl_dg_5_2" />
+    <axis xyz="1 0 0" />
+    <limit lower="-0.4188790204786391" upper="0.6108652381980153" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_5_3">
+    <inertial>
+      <origin xyz="4.74464921769446E-06 -2.30083649391255E-05 -0.0148418615456518" rpy="0.0 0.0 0.0" />
+      <inertia ixx="6.41805423935034E-06" ixy="1.3677812537893E-09" ixz="2.35515982624615E-09" iyy="5.9793833658857E-06" iyz="-3.60143752502041E-07" izz="2.45800517139059E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_5_3.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_5_3_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_5_3" type="revolute">
+    <origin xyz="0.0 0.0 0.031" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_5_2" />
+    <child link="rl_dg_5_3" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.005" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_5_4">
+    <inertial>
+      <origin xyz="-0.000365388872256699 0.00280482111063283 -0.0170446706549657" rpy="0.0 0.0 0.0" />
+      <inertia ixx="9.81936385229634E-06" ixy="-3.46258177073586E-09" ixz="-3.78130201155673E-07" iyy="9.49149264777596E-06" iyz="-1.51572680457629E-07" izz="2.93905089746508E-06" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_5_4.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_5_4_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_5_4" type="revolute">
+    <origin xyz="0.0 0.0 0.0388" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_5_3" />
+    <child link="rl_dg_5_4" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.005" upper="1.5707963267948966" effort="100.0" velocity="3.141592653589793"/>
+  </joint>
+
+  <link name="rl_dg_5_tip">
+    <inertial>
+      <origin xyz="-5.47903832567864E-07 0.0121569905128545 -0.00380629104982077" rpy="0.0 0.0 0.0" />
+      <inertia ixx="1.98954959099337E-07" ixy="3.07311777374764E-11" ixz="2.11907398080508E-12" iyy="2.56982145081983E-07" iyz="-1.33749332188622E-08" izz="3.24447323464712E-07" />
+      <mass value="0.001" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/visual/rl_dg_5_tip.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="$(find dg_m_description)/meshes/dg5f_right/collision/rl_dg_5_tip_c.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="rj_dg_5_tip" type="fixed">
+    <origin xyz="0.0 0.0 0.047" rpy="0.0 0.0 0.0" />
+    <parent link="rl_dg_5_4" />
+    <child link="rl_dg_5_tip" />
+  </joint>
+</robot>
