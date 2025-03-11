@@ -9,6 +9,8 @@
     * https://tesollo.com/dg-5f/
 -->
 
+<!-- Dynamics and joint properties will be updated later. Please note. -->
+
 <robot name="dg5f_right">
 
   <link name="right_base_link" />
