@@ -46,7 +46,8 @@ def generate_launch_description():
 
     params = {'robot_description': robot_description_content}
 
-    rviz_config_file = os.path.join(share_dir, 'config', 'dg5f_left_display.rviz')
+    rviz_config_file = os.path.join(
+        share_dir, 'config', 'dg5f_left_display.rviz')
 
     gui_arg = DeclareLaunchArgument(
         name='gui',
@@ -67,7 +68,7 @@ def generate_launch_description():
         package='joint_state_publisher',
         executable='joint_state_publisher',
         name='joint_state_publisher',
-         parameters=[params],
+        parameters=[params],
     )
 
     joint_state_publisher_gui_node = Node(
@@ -75,7 +76,7 @@ def generate_launch_description():
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
         name='joint_state_publisher_gui',
-       
+
     )
 
     rviz_node = Node(
