@@ -1,4 +1,3 @@
-# DELTO_M_ROS2 
 <img src="/dg_description/image/title.png"/>
 
 <img src="/dg_description/image/dg5f_1.png" alt="dg5f" width="400px"/> <img src="https://en.tesollo.com/wp-content/uploads/2024/12/DG-5F-6-1.webp" width="300px"/>
