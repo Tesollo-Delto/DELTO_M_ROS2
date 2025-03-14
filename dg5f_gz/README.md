@@ -19,6 +19,7 @@ cd ~/your_ws
 ### 2️⃣ Update rosdep (without sudo)
 
 ```bash
+apt update
 rosdep update
 ```
 
