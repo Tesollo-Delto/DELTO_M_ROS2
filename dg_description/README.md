@@ -9,19 +9,19 @@ This package enables easy visualization of robot models in RViz, allowing users 
 
 ## 🖥️ Visualization Usage
 
-This package includes RViz-based launch files for visualizing the DG5F gripper models. Follow the instructions below to visualize each variant:
+This package includes RViz-based launch files for visualizing the Delto Gripper-5F models. Follow the instructions below to visualize each variant:
 
-### 🚀 Launch DG5F Left Gripper Visualization
+### 🚀 Launch Left Delto Gripper-5F Visualization
 
-Run the following command to visualize the DG5F-left gripper:
+Run the following command to visualize the Left Delto Gripper-5F:
 
 ```bash
 ros2 launch dg_description dg5f_left_display.launch.py
 ```
 
-### 🚀 Launch DG5F Right Gripper Visualization
+### 🚀 Launch Right Delto Gripper-5F Visualization
 
-Run the following command to visualize the DG5F-right gripper:
+Run the following command to visualize the Right Delto Gripper-5F:
 
 ```bash
 ros2 launch dg_description dg5f_right_display.launch.py
