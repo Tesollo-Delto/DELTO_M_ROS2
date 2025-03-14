@@ -1,8 +1,20 @@
 <?xml version="1.0"?>
+
+<!--
+    dg5f_left_gz.xacro
+    Licensed under the BSD-3-Clause
+    Copyright (c) 2025 Tesollo Inc.
+    See LICENSE file for details.
+
+    Reference:
+    * https://tesollo.com/dg-5f/
+-->
+
+
 <robot name="delto_5f" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:include filename="$(find dg_description)/urdf/dg5f_left.xacro" />
-    <!-- world_link는 가상의 링크로, 실제로는 Gazebo의 world 프레임에 해당 -->
+  
     <link name="world" />
 
     <joint name="world_to_base_fixed" type="fixed">
