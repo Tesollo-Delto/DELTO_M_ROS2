@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-It provides detailed Gazebo simulations of the DG5F robotic gripper using [ROS 2 control joint trajectory controllers](https://control.ros.org/rolling/index).
+It provides detailed Gazebo simulations of the Delto Gripper-5F using [ROS 2 control joint trajectory controllers](https://control.ros.org/rolling/index).
 
 
 ## 📦 How to Install Dependencies for a Single ROS2 Package (`dg5f_gz`) Using rosdep
@@ -52,14 +52,14 @@ This command builds only the `dg5f_gz` package, ensuring it compiles correctly.
 
 ![DG5F Gripper Simulation](image/gazebo_capture.gif)
 
-Below are detailed instructions for launching the DG5F gripper simulation and executing control commands using ROS 2 Control.
+Below are detailed instructions for launching the Delto Gripper-5F simulation and executing control commands using ROS 2 Control.
 
 
-## 🎛️ Controlling DG5F-Left
+## 🎛️ Controlling Left Delto Gripper-5F
 
 ### 1\. Loading a URDF model into Gazebo
 
-Launch the DG5F-left simulation with:
+Launch the Left Delto Gripper-5F simulation with:
 ```bash
 ros2 launch dg5f_gz dg5f_left_gz.launch.py
 ```
@@ -83,11 +83,11 @@ ros2 run dg5f_gz dg5f_left_gz_test_cpp
 ```
 
 
-## 🎛️ Controlling DG5F-Right
+## 🎛️ Controlling Right Delto Gripper-5F
 
 ### 1\. Loading a URDF model into Gazebo
 
-Launch the DG5F-right simulation:
+Launch the Right Delto Gripper-5F simulation:
 ```bash
 ros2 launch dg5f_gz dg5f_right_gz.launch.py
 ```
@@ -109,11 +109,11 @@ ros2 run dg5f_gz dg5f_right_gz_test_cpp
 ```
 
 
-## 🎛️ Controlling Both DG5F Grippers (Left & Right)
+## 🎛️ Controlling Both Delto Gripper-5F
 
 ### 1\. Loading both URDF models into Gazebo
 
-Launch simulation for both grippers simultaneously:
+Launch the Both Delto Gripper-5F simulation:
 ```bash
 ros2 launch dg5f_gz dg5f_both_gz.launch.py
 ```
