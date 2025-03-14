@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-This repository contains the ROS 2 package for the DELTO_M project, specifically designed for the `dg5f_gz` component. It provides detailed Gazebo simulations of the DG5F robotic gripper using [ROS 2 control joint trajectory controllers](https://control.ros.org/rolling/index). The simulation allows realistic testing and development of robotic grasping tasks in a virtual environment before deploying onto physical hardware.
+It provides detailed Gazebo simulations of the DG5F robotic gripper using [ROS 2 control joint trajectory controllers](https://control.ros.org/rolling/index). The simulation allows realistic testing and development of robotic grasping tasks in a virtual environment before deploying onto physical hardware.
 
 ---
 
