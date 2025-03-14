@@ -54,7 +54,7 @@ def generate_launch_description():
 
     # Get package paths
     pkg_delto_description = FindPackageShare(
-        "dg_m_description").find("dg_m_description")
+        "dg_description").find("dg_description")
     model_path = os.path.join(pkg_delto_description, "meshes")
 
     sdf_path = FindPackageShare("dg5f_gz").find("dg5f_gz")
