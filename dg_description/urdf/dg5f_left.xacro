@@ -166,7 +166,7 @@
     <parent link="ll_dg_1_2" />
     <child link="ll_dg_1_3" />
     <axis xyz="1 0 0" />
-    <limit lower="-1.5707963267948966" upper="0.001" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_1_4">
@@ -193,7 +193,7 @@
     <parent link="ll_dg_1_3" />
     <child link="ll_dg_1_4" />
     <axis xyz="1 0 0" />
-    <limit lower="-1.5707963267948966" upper="0.001" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_1_tip">
@@ -405,7 +405,7 @@
     <parent link="ll_dg_3_1" />
     <child link="ll_dg_3_2" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.9547687622336491" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-0.0" upper="1.9547687622336491" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_3_3">
@@ -432,7 +432,7 @@
     <parent link="ll_dg_3_2" />
     <child link="ll_dg_3_3" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_3_4">
@@ -459,7 +459,7 @@
     <parent link="ll_dg_3_3" />
     <child link="ll_dg_3_4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_3_tip">
@@ -538,7 +538,7 @@
     <parent link="ll_dg_4_1" />
     <child link="ll_dg_4_2" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.9024088846738192" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-0.0" upper="1.9024088846738192" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_4_3">
@@ -565,7 +565,7 @@
     <parent link="ll_dg_4_2" />
     <child link="ll_dg_4_3" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_4_4">
@@ -592,7 +592,7 @@
     <parent link="ll_dg_4_3" />
     <child link="ll_dg_4_4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_4_tip">
@@ -698,7 +698,7 @@
     <parent link="ll_dg_5_2" />
     <child link="ll_dg_5_3" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_5_4">
@@ -725,7 +725,7 @@
     <parent link="ll_dg_5_3" />
     <child link="ll_dg_5_4" />
     <axis xyz="0 1 0" />
-    <limit lower="-0.01" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_5_tip">
