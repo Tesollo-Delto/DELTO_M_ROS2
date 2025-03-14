@@ -4,7 +4,6 @@
 
 It provides detailed Gazebo simulations of the DG5F robotic gripper using [ROS 2 control joint trajectory controllers](https://control.ros.org/rolling/index).
 
----
 
 ## 📦 How to Install Dependencies for a Single ROS2 Package (`dg5f_gz`) Using rosdep
 
@@ -48,7 +47,6 @@ colcon build --packages-select dg5f_gz
 
 This command builds only the `dg5f_gz` package, ensuring it compiles correctly.
 
----
 
 ## 🎮 Simulation Usage
 
@@ -56,7 +54,6 @@ This command builds only the `dg5f_gz` package, ensuring it compiles correctly.
 
 Below are detailed instructions for launching the DG5F gripper simulation and executing control commands using ROS 2 Control.
 
----
 
 ## 🎛️ Controlling DG5F-Left
 
@@ -85,7 +82,6 @@ Execute the C++ test node:
 ros2 run dg5f_gz dg5f_left_gz_test_cpp
 ```
 
----
 
 ## 🎛️ Controlling DG5F-Right
 
@@ -112,7 +108,6 @@ Run C++ node:
 ros2 run dg5f_gz dg5f_right_gz_test_cpp
 ```
 
----
 
 ## 🎛️ Controlling Both DG5F Grippers (Left & Right)
 
@@ -139,7 +134,6 @@ Execute the C++ node:
 ros2 run dg5f_gz dg5f_both_gz_test_cpp
 ```
 
----
 
 ## 🤝 Contributing
 
@@ -151,13 +145,11 @@ Contributions are highly encouraged and greatly appreciated. To contribute:
 4. Push to your branch (`git push origin feature/my-feature`).
 5. Open a pull request detailing your modifications.
 
----
 
 ## 📄 License
 
 This project is released under the BSD-3-Clause license, promoting open-source collaboration and reuse.
 
----
 
 ## 📧 Contact
 
