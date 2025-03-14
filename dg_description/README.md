@@ -39,13 +39,13 @@ ros2 launch dg_description dg5f_right_display.launch.py
 - **Meshes**:
   - Detailed collision and visual mesh files for robot visualization.
 
----
+
 
 ## 📄 License
 
 This project is distributed under the BSD-3-Clause license, promoting open-source collaboration and reuse.
 
----
+
 
 ## 📧 Contact
 
