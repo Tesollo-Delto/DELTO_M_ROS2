@@ -2,7 +2,7 @@
 
 ## 📌 Overview
 
-<img src="/dg_description/image/dg5f_1.png" alt="dg5f" width="400px"/>
+<img src="/dg_description/image/dg5f_1.png" alt="dg5f" width="400px"/> <img src="https://en.tesollo.com/wp-content/uploads/2024/12/DG-5F-6-1.webp" width="300px"/>
 
 The DELTO_M_ROS2 Repository is a comprehensive ROS 2 package designed to support the DG-M. This project includes simulations, control interfaces, and visualization tools for the gripper, enabling developers to efficiently develop and test robotic applications.
 
