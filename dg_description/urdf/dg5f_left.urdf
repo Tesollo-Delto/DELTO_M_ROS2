@@ -18,16 +18,16 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_mount.dae"/>
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_mount.dae"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_mount_c.STL"/>
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_mount_c.STL"/>
       </geometry>
     </collision>
   </link>
-  
+
   <link name="ll_dg_base">
     <inertial>
       <origin xyz="-0.00058969 -0.00051381 0.037363" rpy="0.0 0.0 0.0" />
@@ -37,13 +37,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_base.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_base.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_base_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_base_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -62,13 +62,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_palm.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_palm.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_palm_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_palm_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -87,13 +87,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_1_1.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_1_1.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_1_1_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_1_1_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -114,13 +114,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_1_2.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_1_2.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_1_2_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_1_2_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -141,13 +141,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_1_3.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_1_3.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_1_3_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_1_3_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -156,7 +156,7 @@
     <parent link="ll_dg_1_2" />
     <child link="ll_dg_1_3" />
     <axis xyz="1 0 0" />
-    <limit lower="-1.5707963267948966" upper="0.0" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_1_4">
@@ -168,13 +168,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_1_4.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_1_4.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_1_4_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_1_4_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -183,7 +183,7 @@
     <parent link="ll_dg_1_3" />
     <child link="ll_dg_1_4" />
     <axis xyz="1 0 0" />
-    <limit lower="-1.5707963267948966" upper="0.0" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_1_tip">
@@ -195,13 +195,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_1_tip.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_1_tip.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_1_tip_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_1_tip_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -220,13 +220,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_2_1.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_2_1.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_2_1_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_2_1_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -247,13 +247,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_2_2.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_2_2.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_2_2_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_2_2_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -274,13 +274,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_2_3.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_2_3.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_2_3_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_2_3_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -289,7 +289,7 @@
     <parent link="ll_dg_2_2" />
     <child link="ll_dg_2_3" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_2_4">
@@ -301,13 +301,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_2_4.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_2_4.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_2_4_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_2_4_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -316,7 +316,7 @@
     <parent link="ll_dg_2_3" />
     <child link="ll_dg_2_4" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_2_tip">
@@ -328,13 +328,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_2_tip.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_2_tip.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_2_tip_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_2_tip_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -353,13 +353,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_3_1.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_3_1.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_3_1_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_3_1_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -380,13 +380,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_3_2.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_3_2.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_3_2_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_3_2_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -407,13 +407,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_3_3.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_3_3.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_3_3_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_3_3_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -422,7 +422,7 @@
     <parent link="ll_dg_3_2" />
     <child link="ll_dg_3_3" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_3_4">
@@ -434,13 +434,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_3_4.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_3_4.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_3_4_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_3_4_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -449,7 +449,7 @@
     <parent link="ll_dg_3_3" />
     <child link="ll_dg_3_4" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_3_tip">
@@ -461,13 +461,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_3_tip.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_3_tip.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_3_tip_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_3_tip_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -486,13 +486,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_4_1.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_4_1.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_4_1_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_4_1_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -513,13 +513,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_4_2.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_4_2.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_4_2_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_4_2_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -540,13 +540,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_4_3.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_4_3.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_4_3_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_4_3_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -555,7 +555,7 @@
     <parent link="ll_dg_4_2" />
     <child link="ll_dg_4_3" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_4_4">
@@ -567,13 +567,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_4_4.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_4_4.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_4_4_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_4_4_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -582,7 +582,7 @@
     <parent link="ll_dg_4_3" />
     <child link="ll_dg_4_4" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_4_tip">
@@ -594,13 +594,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_4_tip.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_4_tip.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_4_tip_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_4_tip_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -619,13 +619,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_5_1.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_5_1.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_5_1_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_5_1_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -646,13 +646,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_5_2.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_5_2.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_5_2_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_5_2_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -673,13 +673,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_5_3.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_5_3.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_5_3_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_5_3_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -688,7 +688,7 @@
     <parent link="ll_dg_5_2" />
     <child link="ll_dg_5_3" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_5_4">
@@ -700,13 +700,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_5_4.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_5_4.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_5_4_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_5_4_c.STL" />
       </geometry>
     </collision>
   </link>
@@ -715,7 +715,7 @@
     <parent link="ll_dg_5_3" />
     <child link="ll_dg_5_4" />
     <axis xyz="0 1 0" />
-    <limit lower="0.0" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
+    <limit lower="-1.5707963267948966" upper="1.5707963267948966" effort="7.5" velocity="3.141592653589793"/>
   </joint>
 
   <link name="ll_dg_5_tip">
@@ -727,13 +727,13 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/visual/ll_dg_5_tip.dae" />
+        <mesh filename="package://meshes/dg5f_left/visual/ll_dg_5_tip.dae" />
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
-        <mesh filename="package://dg_description/meshes/dg5f_left/collision/ll_dg_5_tip_c.STL" />
+        <mesh filename="package://meshes/dg5f_left/collision/ll_dg_5_tip_c.STL" />
       </geometry>
     </collision>
   </link>
