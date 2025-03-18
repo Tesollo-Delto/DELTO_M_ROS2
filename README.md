@@ -55,9 +55,9 @@ To install and build the DELTO_M_ROS2 project, follow these steps:
 
 ## 🎯 **Performance Demonstrations**
 
-### **Delto Gripper-5F: Plugging in an Ethernet Cable**
+### **Delto Gripper-3F: Advanced Packaging Solutions**
 
-[![Delto Gripper-5F Ethernet Cable Plugging](https://img.youtube.com/vi/pi-aJvU8Jug/sddefault.jpg)](https://www.youtube.com/watch?v=pi-aJvU8Jug)  
+[![Delto Gripper-3F Advanced Packaging Solutions](https://img.youtube.com/vi/x6QCdgl5r8Q/sddefault.jpg)](https://www.youtube.com/watch?v=x6QCdgl5r8Q)  
 ▶️ *Click the image to watch the video*
 
 
