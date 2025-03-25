@@ -15,7 +15,7 @@ The `dg_isaacsim` package provides a demonstration of integrating ROS2 with Isaa
 ## Isaac Sim Setup
 | **Description** | **Image** |
 |-----------------|-----------|
-| Launch Isaac Sim by executing the App Selector from the installation root directory. | <img src="/docs/source/_static/isaacsim_new_stage.png" width="400px"/> |
+| Launch Isaac Sim by executing the App Selector from the installation root directory. | <img src="./docs/source/_static/isaacsim_new_stage.png" width="400px"/> |
 | Open the `dg5f_right_ros2.usd` file to load the robot model for simulation. | <img src="/docs/source/_static/isaacsim_dg5f_right.png" width="400px"/> |
 | Load the pre-configured ActionGraph to manage robotic tasks and actions. | <img src="/docs/source/_static/isaacsim_actiongraph_open.png" width="400px"/> |
 | Inspect the ActionGraph to understand the connections and structure of the simulation nodes. | <img src="/docs/source/_static/isaacsim_actiongraph_nodes.png" width="400px"/> |
