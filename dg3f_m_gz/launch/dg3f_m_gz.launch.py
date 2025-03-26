@@ -28,14 +28,13 @@
 
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler, ExecuteProcess
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, RegisterEventHandler
 from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import Command, FindExecutable, PathJoinSubstitution, LaunchConfiguration
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch_ros.parameter_descriptions import ParameterValue
 import os
 
 
@@ -45,7 +44,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "gui",
-            default_value="true",
+            default_value="false",
             description="Start RViz2 automatically with this launch file.",
         )
     )
@@ -58,9 +57,6 @@ def generate_launch_description():
         "dg_description").find("dg_description")
     model_path = os.path.join(pkg_delto_description, "meshes")
 
-    sdf_path = FindPackageShare("dg5f_gz").find("dg5f_gz")
-    world_path = os.path.join(sdf_path, "config", "world.sdf")
-    gz_gui_path = os.path.join(sdf_path, "config", "gui.config")
     # Set Gazebo model path
     if 'IGN_GAZEBO_RESOURCE_PATH' in os.environ:
         os.environ['IGN_GAZEBO_RESOURCE_PATH'] = os.environ['IGN_GAZEBO_RESOURCE_PATH'] + ':' + model_path
@@ -78,32 +74,34 @@ def generate_launch_description():
         }.items(),
     )
 
-    gazebo_gui_setting = ExecuteProcess(
-        cmd=['ign', 'gui', '-c', gz_gui_path],
-        output='screen'
-    )
     # Get URDF via xacro
     robot_description_content1 = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [FindPackageShare("dg5f_gz"), "urdf", "dg5f_both_gz.xacro"]
+                [FindPackageShare("dg3f_m_gz"), "urdf", "dg3f_m_gz.xacro"]
             ),
         ]
     )
-    robot_description_content2 = robot_description_content1
+    robot_description_content2 = Command(
+        [
+            PathJoinSubstitution([FindExecutable(name="xacro")]),
+            " ",
+            PathJoinSubstitution(
+                [FindPackageShare("dg3f_m_gz"), "urdf", "dg3f_m_gz.xacro"]
+            ),
+        ]
+    )
 
-    robot_description1 = {
-        "robot_description": ParameterValue(robot_description_content1)}
-    robot_description2 = {
-        "robot_description": ParameterValue(robot_description_content2)}
+    robot_description1 = {"robot_description": robot_description_content1}
+    robot_description2 = {"robot_description": robot_description_content2}
 
     robot_controllers = PathJoinSubstitution(
         [
-            FindPackageShare("dg5f_gz"),
+            FindPackageShare("dg3f_m_gz"),
             "config",
-            "dg5f_both_gz_controller.yaml",
+            "dg3f_m_gz_controller.yaml",
 
         ]
     )
@@ -141,11 +139,11 @@ def generate_launch_description():
         arguments=[
             "-topic", "/robot_description",
             # "-file", file_path,
-            "-name", "dg5f_both",
+            "-name", "dg3f_m",
             "-allow_renaming", "true",
             "-x", "0.0",
             "-y", "0.0",
-            "-z", "0.0",
+            "-z", "0.0",         # z축을 0.1m 올림 (10cm)
         ],
     )
 
@@ -166,12 +164,18 @@ def generate_launch_description():
                    ],
     )
 
+    rqt_joint_trajectory_controller = Node(
+        package="rqt_joint_trajectory_controller",
+        executable="rqt_joint_trajectory_controller",
+        name="rqt_joint_trajectory_controller",
+        output="screen",
+        parameters=[
+            robot_description1,
+            robot_controllers,
+        ],
+    )
     nodes = [
-        gz_spawn_entity,
-
-        node_robot_state_other_publisher,
         gazebo,
-        # gazebo_gui_setting,
         RegisterEventHandler(
             event_handler=OnProcessExit(
                 target_action=gz_spawn_entity,
@@ -185,8 +189,9 @@ def generate_launch_description():
             )
         ),
         node_robot_state_publisher,
+        gz_spawn_entity,
         # control_node,
-
+        node_robot_state_other_publisher
 
     ]
 

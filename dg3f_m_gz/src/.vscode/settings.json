@@ -1,0 +1,22 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/hong/delto_ws/install/dg_m_description/lib/python3.10/site-packages",
+        "/home/hong/delto_ws/install/dg_description/lib/python3.10/site-packages",
+        "/home/hong/delto_ws/install/delto_description/lib/python3.10/site-packages",
+        "/home/hong/delto_ws/install/delto_3f_driver/local/lib/python3.10/dist-packages",
+        "/home/hong/ros2_ws/install/orbbec_camera_msgs/local/lib/python3.10/dist-packages",
+        "/home/hong/zed_ws/install/zed_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/hong/delto_ws/install/dg_m_description/lib/python3.10/site-packages",
+        "/home/hong/delto_ws/install/dg_description/lib/python3.10/site-packages",
+        "/home/hong/delto_ws/install/delto_description/lib/python3.10/site-packages",
+        "/home/hong/delto_ws/install/delto_3f_driver/local/lib/python3.10/dist-packages",
+        "/home/hong/ros2_ws/install/orbbec_camera_msgs/local/lib/python3.10/dist-packages",
+        "/home/hong/zed_ws/install/zed_interfaces/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
