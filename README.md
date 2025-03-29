@@ -15,7 +15,7 @@ The DELTO_M_ROS2 Repository is a comprehensive ROS 2 package designed to support
 ## 📦 Package Structure
 
 The DELTO_M_ROS2 project comprises the following main packages:
-- [**dg3f_gz**](/dg5f_gz/): Provides Gazebo simulations and control interfaces for the Delto Gripper-3F. 
+- [**dg3f_gz**](/dg3f_gz/): Provides Gazebo simulations and control interfaces for the Delto Gripper-3F. 
 - [**dg5f_gz**](/dg5f_gz/): Provides Gazebo simulations and control interfaces for the Delto Gripper-5F. 
 - [**dg_description**](/dg_description/): Contains URDF models and visualization configurations for the Delto Gripper-5F.
 - [**dg_isaacsim**](/dg_isaacsim/):  package provides a demonstration of integrating ROS2 with Isaac Sim
