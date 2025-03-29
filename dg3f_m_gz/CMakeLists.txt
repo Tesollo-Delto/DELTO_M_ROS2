@@ -9,18 +9,13 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 
-add_executable(dg5f_both_gz_test_cpp src/dg5f_both_gz_test.cpp)
-ament_target_dependencies(dg5f_both_gz_test_cpp rclcpp trajectory_msgs)
+add_executable(dg3f_m_gz_test_cpp src/dg3f_m_gz_test.cpp)
+ament_target_dependencies(dg3f_m_gz_test_cpp rclcpp trajectory_msgs)
 
-add_executable(dg5f_left_gz_test_cpp src/dg5f_left_gz_test.cpp)
-ament_target_dependencies(dg5f_left_gz_test_cpp rclcpp trajectory_msgs)
 
-add_executable(dg5f_right_gz_test_cpp src/dg5f_right_gz_test.cpp)
-ament_target_dependencies(dg5f_right_gz_test_cpp rclcpp trajectory_msgs)
-
-# install(TARGETS 
-#   dg3f_m_gz_test_cpp
-#   DESTINATION lib/${PROJECT_NAME})
+install(TARGETS 
+  dg3f_m_gz_test_cpp
+  DESTINATION lib/${PROJECT_NAME})
 
 install(
   DIRECTORY config urdf launch
@@ -30,8 +25,6 @@ install(
 install(
   PROGRAMS 
   script/dg3f_m_gz_test.py
-  # script/dg5f_left_gz_test.py
-  # script/dg5f_right_gz_test.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
