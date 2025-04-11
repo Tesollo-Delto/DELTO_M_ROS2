@@ -29,9 +29,9 @@ colcon build --packages-select dg3f_m_driver
 
 ## 🎛️ Controlling Delto Gripper-3F-M
 
-### 1\. Loading a URDF model into Gazebo
+### 1\. Loading Delto-Gripper-3F-M controller
 
-Launch the Left Delto Gripper-3F-M controller with:
+Launch the Delto Gripper-3F-M controller with:
 ```bash
 ros2 launch dg3f_m_driver dg3f_m_driver.launch.py
 ```
