@@ -44,20 +44,6 @@ ament_target_dependencies(dg3f_m_driver
   hardware_interface
 )
 
-
-add_executable(dg3f_m_test_cpp src/dg3f_m_test.cpp)
-ament_target_dependencies(dg3f_m_test_cpp rclcpp trajectory_msgs)
-
-install(TARGETS 
-  dg3f_m_test_cpp
-  DESTINATION lib/${PROJECT_NAME})
-
-install(
-  PROGRAMS 
-  script/dg3f_m_test.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 # 설치 규칙
 install(
   TARGETS dg3f_m_driver delto_tcp
@@ -71,10 +57,43 @@ install(
   DESTINATION include
 )
 
+add_executable(dg3f_m_internal_driver src/dg3f_m_internal_driver.cpp)
+ament_target_dependencies(dg3f_m_internal_driver rclcpp trajectory_msgs sensor_msgs)
+
+install(TARGETS 
+  dg3f_m_internal_driver
+  DESTINATION lib/${PROJECT_NAME})
+
+  target_include_directories(dg3f_m_internal_driver PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
 install(
   DIRECTORY config urdf launch
   DESTINATION share/${PROJECT_NAME}
 )
+
+
+### test control DG3F example
+add_executable(dg3f_m_test_cpp src/dg3f_m_test.cpp)
+ament_target_dependencies(dg3f_m_test_cpp rclcpp trajectory_msgs)
+
+add_executable(dg3f_m_internal_test_cpp src/dg3f_m_internal_test.cpp)
+ament_target_dependencies(dg3f_m_internal_test_cpp rclcpp trajectory_msgs)
+
+install(
+  PROGRAMS 
+  script/dg3f_m_internal_test.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+  PROGRAMS 
+  script/dg3f_m_test.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 
 pluginlib_export_plugin_description_file(hardware_interface dg3f_m_driver.xml)
 

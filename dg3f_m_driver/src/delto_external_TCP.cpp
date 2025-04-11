@@ -28,9 +28,11 @@
 
 #include "dg3f_driver/delto_external_TCP.hpp"
 
-namespace DeltoTCP {
+namespace DeltoTCP
+{
 // Initializer Helper Function
-int Communication::GetMotorCount(uint16_t model) {
+int Communication::GetMotorCount(uint16_t model)
+{
   switch (model) {
     case 0x3F01:
       return 12;
@@ -47,36 +49,40 @@ int Communication::GetMotorCount(uint16_t model) {
   }
 }
 
-int Communication::GetBytePerMotor(bool fingertip_sensor, bool io) {
-  if (!fingertip_sensor && !io) return 8;
-  if (fingertip_sensor && !io) return 9;
-  if (!fingertip_sensor && io) return 9;
-  if (fingertip_sensor && io) return 10;
+int Communication::GetBytePerMotor(bool fingertip_sensor, bool io)
+{
+  if (!fingertip_sensor && !io) {return 8;}
+  if (fingertip_sensor && !io) {return 9;}
+  if (!fingertip_sensor && io) {return 9;}
+  if (fingertip_sensor && io) {return 10;}
 
   throw std::invalid_argument("Invalid fingertip sensor or IO configuration");
 }
 
-Communication::Communication(const std::string& ip, int port, int16_t model,
-                             bool fingertip_sensor, bool io)
-    : ip_(ip),
-      port_(port),
-      socket_(io_context_),
-      model_(model),
-      fingertip_sensor_(fingertip_sensor),
-      io_(io),
-      motor_count_(GetMotorCount(model)),
-      byte_per_motor_(GetBytePerMotor(fingertip_sensor, io)),
-      total_packet_size_(HEADER_SIZE + motor_count_ * byte_per_motor_),
-      expected_response_length_(99) {}
+Communication::Communication(
+  const std::string & ip, int port, int16_t model,
+  bool fingertip_sensor, bool io)
+: ip_(ip),
+  port_(port),
+  socket_(io_context_),
+  model_(model),
+  fingertip_sensor_(fingertip_sensor),
+  io_(io),
+  motor_count_(GetMotorCount(model)),
+  byte_per_motor_(GetBytePerMotor(fingertip_sensor, io)),
+  total_packet_size_(HEADER_SIZE + motor_count_ * byte_per_motor_),
+  expected_response_length_(99) {}
 
-Communication::~Communication() { socket_.close(); }
+Communication::~Communication() {socket_.close();}
 
-void Communication::Connect() {
+void Communication::Connect()
+{
   tcp::resolver resolver(io_context_);
   boost::system::error_code ec;
 
-  boost::asio::connect(socket_, resolver.resolve(ip_, std::to_string(port_)),
-                       ec);
+  boost::asio::connect(
+    socket_, resolver.resolve(ip_, std::to_string(port_)),
+    ec);
 
   if (ec) {
     std::cerr << "Could not connect: " << ec.message() << std::endl;
@@ -86,52 +92,45 @@ void Communication::Connect() {
   std::cout << "Connected to Delto Gripper" << std::endl;
 }
 
-void Communication::Disconnect() {
+void Communication::Disconnect()
+{
   socket_.close();
   std::cout << "Disconnected from Delto Gripper" << std::endl;
 }
-// 안정적인 패킷 수신 함수: 정확히 TOTAL_PACKET_SIZE만큼 읽을 때까지 대기
 
-bool Communication::ReadFullPacket(boost::asio::ip::tcp::socket& socket,
-                                   std::array<uint8_t, 99>& buffer) {
+bool Communication::ReadFullPacket(
+  boost::asio::ip::tcp::socket & socket,
+  std::array<uint8_t, 99> & buffer)
+{
   boost::system::error_code ec;
-  // std::size_t total_read = 0;
-  // while (total_read < total_packet_size_) {
-  //   std::size_t bytes_read =
-  //       socket.read_some(boost::asio::buffer(buffer.data() + total_read,
-  //                                            total_packet_size_ - total_read),
-  //                        ec);
-      
-  //   if (ec) {
-  //     std::cerr << "Read error: " << ec.message() << std::endl;
-  //     return false;
-  //   }
-  //   total_read += bytes_read;
-  // }
-  // return true;
 
-std::size_t bytes_read = boost::asio::read(
-    socket, 
+  std::size_t bytes_read = boost::asio::read(
+    socket,
     boost::asio::buffer(buffer.data(), total_packet_size_),
     boost::asio::transfer_exactly(total_packet_size_),
     ec
-);
+  );
 
-if (ec) {
-  std::cerr << "Read error: " << ec.message() << std::endl;
-  return false;
+  if (ec) {
+    std::cerr << "Read error: " << ec.message() << std::endl;
+    return false;
+  }
+
+  return bytes_read == total_packet_size_;
 }
 
-return (bytes_read == total_packet_size_);
 
-}
-
-
-DeltoReceivedData Communication::GetData() {
-  std::array<uint8_t, 3> request;  // Length(2) + CMD(1)
+DeltoReceivedData Communication::GetData()
+{
+  std::array<uint8_t, 7> request;  // Length(2) + CMD(1)
+  
   request[0] = 0x00;               // Length_h
-  request[1] = 0x03;               // Length_l
-  request[2] = GET_DATA_CMD;       // CMD
+  request[1] = 0x07;               // Length_l
+  request[2] = GET_DATA_CMD;
+  request[3] = 0x01;
+  request[4] = 0x02;
+  request[5] = 0x03;
+  request[6] = 0x04;
 
   {
     boost::system::error_code ec;
@@ -147,23 +146,19 @@ DeltoReceivedData Communication::GetData() {
     std::cerr << "Failed to read full packet" << std::endl;
     return DeltoReceivedData{};
   }
-  
+
   uint16_t length = CombineMsg(response[0], response[1]);
   uint8_t cmd = response[2];
 
-  if (cmd != request[2] || (int) response.size() != expected_response_length_) {
-    // std::cout << "Invalid header (CMD or LENGTH mismatch) "
-    //           << static_cast<int>(cmd) << " " << static_cast<int>(request[2])
-    //           << " " << static_cast<int>(requset[2]) << " "
-    //           << static_cast<int>(length) << " test" << std::endl;
-    std:: cerr<< "expected_response_length_: " << expected_response_length_ << std::endl;
+  if (cmd != request[2] || static_cast<int>(response.size()) != expected_response_length_) {
+    std::cerr << "expected_response_length_: " << expected_response_length_ << std::endl;
     std::cerr << "Invalid header (CMD or LENGTH mismatch)" << std::endl;
     std::cerr << "Request bytes: ";
-    for (const auto& byte : request) {
+    for (const auto & byte : request) {
       std::cerr << "0x" << std::hex << static_cast<int>(byte) << " ";
     }
     std::cerr << "Response bytes: ";
-    for (const auto& byte : response) {
+    for (const auto & byte : response) {
       std::cerr << "0x" << std::hex << static_cast<int>(byte) << " ";
     }
     // std::cerr << std::dec << std::endl;
@@ -179,7 +174,8 @@ DeltoReceivedData Communication::GetData() {
   received_data.current.resize(motor_count_);
 
   if (model_ == 0x3F02 || model_ == 0x4F02 || model_ == 0x5F12 ||
-      model_ == 0x5F22) {
+    model_ == 0x5F22)
+  {
     received_data.velocity.resize(motor_count_);
     received_data.temperature.resize(motor_count_);
   }
@@ -213,19 +209,19 @@ DeltoReceivedData Communication::GetData() {
 
       int8_t raw_vel = convertByte(response[base + 7]);
       received_data.velocity[i] = static_cast<double>(raw_vel) * VELOCITY_SCALE * -1;
-      // std::cout << "raw_vel: " << static_cast<int>(raw_vel)  << std::endl;
     }
   }
 
   return received_data;
 }
 
-void Communication::SendDuty(std::vector<int>& duty) {
+void Communication::SendDuty(std::vector<int> & duty)
+{
   std::vector<uint8_t> tcp_data_send;
 
   uint16_t total_packet_size =
-      3 +                // Length(2) + CMD(1) +
-      motor_count_ * 3;  // motor_count_ *(ID(1) + Duty(2))
+    3 +                  // Length(2) + CMD(1) +
+    motor_count_ * 3;    // motor_count_ *(ID(1) + Duty(2))
 
   tcp_data_send.resize(total_packet_size);
 
@@ -248,7 +244,8 @@ void Communication::SendDuty(std::vector<int>& duty) {
   }
 }
 
-int16_t Communication::CombineMsg(uint8_t data1, uint8_t data2) {
+int16_t Communication::CombineMsg(uint8_t data1, uint8_t data2)
+{
   int16_t combined = static_cast<int16_t>((data1 << 8) | (data2));
 
   if (combined >= 0x8000) {
@@ -258,7 +255,8 @@ int16_t Communication::CombineMsg(uint8_t data1, uint8_t data2) {
   return combined;
 }
 
-int8_t Communication::convertByte(uint8_t byte) {
+int8_t Communication::convertByte(uint8_t byte)
+{
   if (byte >= 0x80) {
     return static_cast<int8_t>(byte - 0x100);
   }

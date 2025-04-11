@@ -1,0 +1,30 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/hong/delto_ws/install/dg5f_driver/include/**",
+        "/home/hong/delto_ws/install/delto_5f_driver/include/**",
+        "/home/hong/delto_ws/install/delto_3f_driver/include/**",
+        "/home/hong/ros2_ws/install/orbbec_camera/include/**",
+        "/home/hong/ros2_ws/install/orbbec_camera_msgs/include/**",
+        "/home/hong/zed_ws/install/zed_components/include/**",
+        "/home/hong/zed_ws/install/zed_interfaces/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/hong/delto_ws/src/DELTO_M_ROS2/dg5f_driver/include/**",
+        "/home/hong/delto_ws/src/DELTO_ROS2/delto_3f_driver/include/**",
+        "/home/hong/delto_ws/src/DELTO_ROS2/delto_5f_driver/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

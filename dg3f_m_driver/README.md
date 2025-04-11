@@ -36,23 +36,20 @@ Launch the Left Delto Gripper-3F-M controller with:
 ros2 launch dg3f_m_driver dg3f_m_driver.launch.py
 ```
 
-
-
 ### 2\. Here's a simple topic-based control command example:
 -  **Python Example**: [dg3f_m_test.py](script/dg3f_m_test.py)
 
 Run the Python test script:
 ```bash
-ros2 run dg3f_m_gz dg3f_m_gz_test.py
+ros2 run dg3f_m_driver dg3f_m_test.py
 ```
 
 - 💻 **C++ Example**: [dg3f_m_test.cpp](src/dg3f_m_test.cpp)
 
 Run the CPP test code:
 ```bash
-ros2 run dg3f_m_gz dg3f_m_test_cpp
+ros2 run dg3f_m_driver dg3f_m_test_cpp
 ```
-
 
 ## 🤝 Contributing
 Contributions are encouraged:

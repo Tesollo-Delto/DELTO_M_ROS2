@@ -32,8 +32,7 @@
 #include <memory>
 #include <string>
 #include "rclcpp/rclcpp.hpp"
-#include "trajectory_msgs/msg/joint_trajectory.hpp"
-#include "trajectory_msgs/msg/joint_trajectory_point.hpp"
+#include "std_msgs/msg/float64_multi_array.hpp"
 
 using namespace std::chrono_literals;
 
@@ -41,19 +40,14 @@ constexpr double d2r(double deg) {
     return deg * 3.141592 / 180.0;
 }
 
-class JointTrajectoryPublisher : public rclcpp::Node {
+class TargetJointPublisher : public rclcpp::Node {
 public:
-    JointTrajectoryPublisher() : Node("joint_trajectory_publisher"), index_(0) {
-        publisher_ = this->create_publisher<trajectory_msgs::msg::JointTrajectory>(
-            "/dg3f_m_controller/joint_trajectory", 10);
+    TargetJointPublisher() : Node("joint_trajectory_publisher"), index_(0) {
+        publisher_ = this->create_publisher<std_msgs::msg::Float64MultiArray>(
+            "/target_joint", 10);
         timer_ = this->create_wall_timer(2s,
-             std::bind(&JointTrajectoryPublisher::timer_callback, this));
+             std::bind(&TargetJointPublisher::timer_callback, this));
 
-        joint_names_ = {
-            "j_dg_1_1", "j_dg_1_2", "j_dg_1_3", "j_dg_1_4",
-            "j_dg_2_1", "j_dg_2_2", "j_dg_2_3", "j_dg_2_4",
-            "j_dg_3_1", "j_dg_3_2", "j_dg_3_3", "j_dg_3_4"
-        };
 
         angles_ = {
             {0,        0,       d2r(0), d2r(0),
@@ -76,33 +70,30 @@ public:
 
 private:
     void timer_callback() {
-        trajectory_msgs::msg::JointTrajectory msg;
-        msg.joint_names = joint_names_;
+        std_msgs::msg::Float64MultiArray msg;
+        msg.data.resize(angles_[index_].size());
+        for (size_t i = 0; i < angles_[index_].size(); ++i) {
+            msg.data[i] = angles_[index_][i];
+        }
 
-        trajectory_msgs::msg::JointTrajectoryPoint point;
-        point.positions = angles_[index_];
-        point.time_from_start = rclcpp::Duration(1s);
-
-        msg.points.push_back(point);
-        RCLCPP_INFO(this->get_logger(), "Publishing trajectory #%zu", index_);
         publisher_->publish(msg);
 
         index_++;
+
         if (index_ >= angles_.size()) {
             index_ = 0;
         }
     }
 
     rclcpp::TimerBase::SharedPtr timer_;
-    rclcpp::Publisher<trajectory_msgs::msg::JointTrajectory>::SharedPtr publisher_;
-    std::vector<std::string> joint_names_;
+    rclcpp::Publisher<std_msgs::msg::Float64MultiArray>::SharedPtr publisher_;
     std::vector<std::vector<double>> angles_;
     size_t index_;
 };
 
 int main(int argc, char * argv[]) {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<JointTrajectoryPublisher>());
+    rclcpp::spin(std::make_shared<TargetJointPublisher>());
     rclcpp::shutdown();
     return 0;
 }
