@@ -10,6 +10,16 @@
 -->
 
 <robot name="dg3f_m">
+
+  <link name="base_link" />
+
+  <joint name="base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="l_dg_mount" />
+  </joint>
+
+
   <link name="l_dg_mount">
     <inertial>
       <mass value="0.035" />
